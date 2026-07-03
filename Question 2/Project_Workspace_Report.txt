@@ -1,0 +1,63 @@
+Question 2 – Secure Project Workspace
+
+1. Directory Structure Created
+
+Project/
+    Docs/
+      readme.txt
+    Source/
+      Backup/
+
+Observation:
+A secure project workspace was created with separate directories for documentation, source files, and backups.
+
+2. File Permissions Before Modification
+
+Command:
+ls -l
+ls -l Docs
+
+Observation:
+The directories and file were created with the default permissions determined by the system's umask.
+
+
+3. Umask Value Used
+
+Command:
+umask
+
+Output:
+0022
+
+Observation:
+The default umask value is 0022. This removes write permission for the group and others when new files and directories are created.
+
+
+4. Permission Modification
+
+Commands:
+chmod 700 Docs
+chmod 600 Docs/readme.txt
+
+Observation:
+The Docs directory is accessible only by the owner.
+The readme.txt file can only be read and modified by the owner.
+
+5. Ownership Details
+
+Command:
+ls -ld Docs
+
+Output:
+Owner: coder
+Group: coder
+
+Observation:
+The owner and group of the Docs directory were verified successfully.
+
+
+6. How Permissions Protect Project Data
+
+Restricting the Docs directory to permission 700 prevents unauthorized users from accessing its contents.
+
+Restricting readme.txt to permission 600 ensures that only the owner can read or modify the file, protecting confidential project information.
